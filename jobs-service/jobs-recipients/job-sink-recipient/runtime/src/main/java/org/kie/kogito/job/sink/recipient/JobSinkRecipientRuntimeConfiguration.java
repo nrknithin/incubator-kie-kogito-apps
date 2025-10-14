@@ -18,25 +18,23 @@
  */
 package org.kie.kogito.job.sink.recipient;
 
+import io.quarkus.runtime.annotations.ConfigItem;
 import io.quarkus.runtime.annotations.ConfigPhase;
 import io.quarkus.runtime.annotations.ConfigRoot;
-import io.smallrye.config.ConfigMapping;
-import io.smallrye.config.WithDefault;
 
-@ConfigMapping(prefix = "kogito.job.recipient.sink")
-@ConfigRoot(phase = ConfigPhase.RUN_TIME)
-public interface JobSinkRecipientRuntimeConfiguration {
+@ConfigRoot(prefix = "kogito", name = "job.recipient.sink", phase = ConfigPhase.RUN_TIME)
+public class JobSinkRecipientRuntimeConfiguration {
 
     /**
      * Default timeout to execute HTTP requests for the SinkRecipient when the Job's timeout is not configured.
      */
-    @WithDefault("5000")
-    long timeoutInMillis();
+    @ConfigItem(name = "timeout-in-millis", defaultValue = "5000")
+    long timeoutInMillis;
 
     /**
      * Max accepted timeout to execute HTTP requests for the SinkRecipient when the Job's timeout is configured.
      * Attempts to surpass this value will result in a validation error at Job creation time.
      */
-    @WithDefault("60000")
-    long maxTimeoutInMillis();
+    @ConfigItem(name = "max-timeout-in-millis", defaultValue = "60000")
+    long maxTimeoutInMillis;
 }
