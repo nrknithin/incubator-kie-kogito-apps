@@ -437,10 +437,6 @@ input UserTaskInstanceArgument {
     comments: CommentArgument
     attachments: AttachmentArgument
     slaDueDate: DateArgument
-    rootProcessInstanceId: StringArgument
-    rootProcessId: StringArgument
-    externalReferenceId: StringArgument
-    endpoint: StringArgument
 }
 
 input CommentArgument {
