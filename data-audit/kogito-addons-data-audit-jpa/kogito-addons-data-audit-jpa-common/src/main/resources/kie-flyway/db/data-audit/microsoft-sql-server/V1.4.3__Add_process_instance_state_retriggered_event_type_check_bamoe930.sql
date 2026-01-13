@@ -17,5 +17,5 @@
  * under the License.
  */
 
-alter table Process_Instance_State_Log drop constraint Process_Instance_State_Log_event_type_check;
-alter table Process_Instance_State_Log add constraint Process_Instance_State_Log_event_type_check CHECK (event_type IN ('ACTIVE','COMPLETED','SLA_VIOLATION','MIGRATED','STATE_UPDATED','RETRIGGERED'));
+alter table process_instance_state_log drop constraint process_instance_state_log_event_type_check;
+alter table process_instance_state_log add constraint process_instance_state_log_event_type_check CHECK (event_type IN ('ACTIVE','COMPLETED','SLA_VIOLATION','MIGRATED','STATE_UPDATED','RETRIGGERED'));
