@@ -1,0 +1,3 @@
+
+CREATE INDEX idx_tiaul_tialid ON task_instance_assignment_users_log(task_instance_assignment_log_id);
+CREATE INDEX idx_pisrl_pislid ON process_instance_state_roles_log(process_instance_state_log_id);
