@@ -5,7 +5,7 @@
 CREATE TABLE job_details (
     id VARCHAR(50) NOT NULL,
     correlation_id VARCHAR(50),
-    status VARCHAR(40),
+    status VARCHAR(40), -- the job status: 'ERROR' or 'EXECUTED' or 'SCHEDULED' or 'RETRY' or 'CANCELED' or 'RUNNING'
     last_update TIMESTAMP,
     retries INTEGER,
     execution_counter INTEGER,
@@ -19,7 +19,6 @@ CREATE TABLE job_details (
     created TIMESTAMP,
     exception_message VARCHAR(32672),
     exception_details CLOB(2M),
-    CONSTRAINT job_details_status_check CHECK (status IN ('ERROR', 'EXECUTED', 'SCHEDULED', 'RETRY', 'CANCELED')),
     CONSTRAINT job_details_pkey1 PRIMARY KEY (id)
 );
 
